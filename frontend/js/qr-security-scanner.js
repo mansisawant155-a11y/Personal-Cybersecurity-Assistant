@@ -8,7 +8,7 @@ console.log("NEW QR SECURITY JS LOADED");
 // CONFIGURATION
 // =========================================
 
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://personal-cybersecurity-assistant-phli.onrender.com";
 
 // =========================================
 // LOGIN CHECK
