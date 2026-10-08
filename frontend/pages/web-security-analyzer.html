@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Security Analyzer | Personal Cybersecurity Assistant</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            );
+        }
+
+
+        .custom-input:focus {
+            outline: none;
+
+            border-color: #4f46e5;
+
+            box-shadow:
+                0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+
+        .result-item {
+            transition: all 0.2s ease;
+        }
+
+
+        .result-item:hover {
+            transform: translateY(-1px);
+        }
+
+    </style>
+
+</head>
+
+
+<body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased selection:bg-indigo-600 selection:text-white">
+
+
+    <!-- =====================================================
+         TOP NAVIGATION
+    ====================================================== -->
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 sm:px-12 py-4 flex items-center justify-between sticky top-0 z-50">
+
+        <div class="flex items-center gap-4">
+
+            <a href="dashboard.html"
+               class="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition flex items-center gap-2">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <div class="h-5 w-px bg-slate-200"></div>
+
+
+            <div class="flex items-center gap-2.5">
+
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-sm">
+
+                    <i class="fa-solid fa-globe text-sm"></i>
+
+                </div>
+
+
+                <span class="text-base font-bold text-slate-900 tracking-tight">
+
+                    Web Security Analyzer
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hidden sm:flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 text-xs font-semibold text-emerald-800">
+
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+
+            <span id="scannerStatus">
+
+                Ready to Inspect URL
+
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="my-auto py-10 px-4 sm:px-6 w-full max-w-2xl mx-auto">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="text-center mb-8">
+
+            <span class="text-[11px] font-bold uppercase tracking-widest text-indigo-700 bg-indigo-50 px-3.5 py-1.5 rounded-full border border-indigo-100">
+
+                Web Security
+
+            </span>
+
+
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+
+                Web Security Analyzer
+
+            </h1>
+
+
+            <p class="text-xs sm:text-sm text-slate-500 mt-2 max-w-md mx-auto">
+
+                Analyze website URLs for basic security characteristics and common web-related risks before visiting the website.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             ANALYSIS CARD
+        ====================================================== -->
+
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xl shadow-slate-200/60">
+
+
+            <div class="border-b border-slate-100 pb-4 mb-6">
+
+                <h2 class="text-lg font-bold text-slate-900">
+
+                    Analyze a Website
+
+                </h2>
+
+
+                <p class="text-xs text-slate-500 mt-0.5">
+
+                    Enter a website URL below to perform a basic web security analysis.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form id="webForm" class="space-y-6">
+
+
+                <!-- URL INPUT -->
+
+                <div>
+
+                    <label
+                        for="urlInput"
+                        class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2"
+                    >
+
+                        Website URL
+
+                    </label>
+
+
+                    <input
+                        type="url"
+                        id="urlInput"
+                        required
+                        placeholder="https://example.com"
+                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 bg-slate-50/50 custom-input transition-all duration-200"
+                    >
+
+
+                    <p class="text-[11px] text-slate-400 mt-1.5">
+
+                        Enter a complete URL beginning with http:// or https://
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- ANALYZE BUTTON -->
+
+                <button
+                    type="submit"
+                    id="analyzeBtn"
+                    class="w-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-3.5 px-4 rounded-xl transition-all text-xs shadow-md active:scale-[0.99] flex items-center justify-center gap-2"
+                >
+
+                    <i class="fa-solid fa-magnifying-glass font-normal"></i>
+
+                    <span>
+                        Analyze Website
+                    </span>
+
+                </button>
+
+            </form>
+
+
+
+            <!-- =====================================================
+                 SCAN STATUS
+            ====================================================== -->
+
+            <div
+                id="scanStatus"
+                class="hidden mt-6 p-4 rounded-2xl bg-indigo-50 border border-indigo-200"
+            >
+
+                <div class="flex items-center gap-3">
+
+                    <i class="fa-solid fa-circle-notch fa-spin text-indigo-600"></i>
+
+
+                    <div class="flex-1">
+
+                        <div
+                            id="statusBadge"
+                            class="font-bold text-indigo-900 text-sm"
+                        >
+
+                            Running
+
+                        </div>
+
+
+                        <div
+                            id="statusMessage"
+                            class="text-indigo-700 text-xs mt-1"
+                        >
+
+                            Preparing web security analysis...
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESS BAR -->
+
+                <div class="mt-3 w-full h-2 bg-indigo-100 rounded-full overflow-hidden">
+
+                    <div
+                        id="progressBar"
+                        class="h-full bg-indigo-600 rounded-full transition-all duration-300"
+                        style="width: 0%;"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 RESULT BOX
+            ====================================================== -->
+
+            <div
+                id="webResults"
+                class="hidden mt-6 space-y-5"
+            >
+
+
+                <!-- SUMMARY -->
+
+                <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50">
+
+                    <div class="flex items-start justify-between gap-4">
+
+                        <div class="min-w-0">
+
+                            <div class="text-[10px] uppercase tracking-wider font-bold text-slate-400">
+
+                                Analysis Result
+
+                            </div>
+
+
+                            <h3
+                                id="overallRisk"
+                                class="text-xl font-extrabold text-emerald-600 mt-1"
+                            >
+
+                                Low Risk
+
+                            </h3>
+
+
+                            <p
+                                id="analyzedUrl"
+                                class="text-xs text-slate-500 mt-1 break-all"
+                            >
+
+                                URL:
+
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            id="analysisResultStatus"
+                            class="shrink-0 px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold"
+                        >
+
+                            Completed
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- SUMMARY COUNTS -->
+
+                    <div class="grid grid-cols-2 gap-3 mt-5">
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">
+
+                                Checks Performed
+
+                            </div>
+
+
+                            <div
+                                id="checksPerformed"
+                                class="text-xl font-extrabold text-slate-800 mt-1"
+                            >
+
+                                0
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase tracking-wider text-slate-400 font-bold">
+
+                                Issues Found
+
+                            </div>
+
+
+                            <div
+                                id="issuesFound"
+                                class="text-xl font-extrabold text-slate-800 mt-1"
+                            >
+
+                                0
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     URL INFORMATION
+                ================================================== -->
+
+                <div>
+
+                    <h3 class="text-sm font-bold text-slate-900 mb-3">
+
+                        URL Information
+
+                    </h3>
+
+
+                    <div class="grid grid-cols-2 gap-3">
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                Protocol
+
+                            </div>
+
+                            <div
+                                id="protocolResult"
+                                class="text-xs font-bold text-slate-800 mt-1"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                Domain
+
+                            </div>
+
+                            <div
+                                id="domainResult"
+                                class="text-xs font-bold text-slate-800 mt-1 break-all"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                Port
+
+                            </div>
+
+                            <div
+                                id="portResult"
+                                class="text-xs font-bold text-slate-800 mt-1"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                HTTPS
+
+                            </div>
+
+                            <div
+                                id="httpsResult"
+                                class="text-xs font-bold text-slate-800 mt-1"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                Path
+
+                            </div>
+
+                            <div
+                                id="pathResult"
+                                class="text-xs font-bold text-slate-800 mt-1 break-all"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-3">
+
+                            <div class="text-[10px] uppercase text-slate-400 font-bold">
+
+                                Query Parameters
+
+                            </div>
+
+                            <div
+                                id="queryResult"
+                                class="text-xs font-bold text-slate-800 mt-1"
+                            >
+
+                                -
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FINDINGS
+                ================================================== -->
+
+                <div>
+
+                    <h3 class="text-sm font-bold text-slate-900 mb-3">
+
+                        Security Findings
+
+                    </h3>
+
+
+                    <div
+                        id="findingList"
+                        class="space-y-3"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     RECOMMENDATIONS
+                ================================================== -->
+
+                <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-200">
+
+                    <h3 class="text-sm font-bold text-indigo-900">
+
+                        Security Recommendations
+
+                    </h3>
+
+
+                    <ul
+                        id="recommendationList"
+                        class="mt-3 space-y-2 text-xs text-indigo-800 list-disc pl-4"
+                    ></ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="text-center text-xs text-slate-400 py-4 border-t border-slate-200/60">
+
+        &copy; 2026 Personal Cybersecurity Assistant. All rights reserved.
+
+    </footer>
+
+
+
+    <!-- EXTERNAL JAVASCRIPT -->
+
+    <script src="../js/web-security-analyzer.js"></script>
+
+</body>
+</html>

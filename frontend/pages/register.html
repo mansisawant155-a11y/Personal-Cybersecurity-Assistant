@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Personal Cybersecurity Assistant</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            );
+        }
+
+        .custom-input:focus {
+            outline: none;
+
+            border-color: #1E3A5F;
+
+            box-shadow:
+                0 0 0 3px rgba(30, 58, 95, 0.12);
+
+            background: #ffffff;
+        }
+
+        .message-box {
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 10px 12px;
+
+            border-radius: 10px;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        .message-box.success {
+            background: #f0fdf4;
+
+            border: 1px solid #bbf7d0;
+
+            color: #166534;
+        }
+
+        .message-box.error {
+            background: #fef2f2;
+
+            border: 1px solid #fecaca;
+
+            color: #b91c1c;
+        }
+
+        .message-box.info {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            color: #1d4ed8;
+        }
+
+        .password-rules {
+            margin-top: 8px;
+
+            padding: 9px 11px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+        }
+
+        .password-rules p {
+            font-size: 10px;
+
+            color: #64748b;
+
+            margin-bottom: 3px;
+        }
+
+        .rule {
+            font-size: 10px;
+
+            color: #64748b;
+
+            margin-top: 3px;
+        }
+
+        .rule i {
+            width: 12px;
+
+            margin-right: 4px;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased">
+
+
+    <!-- HEADER -->
+
+    <header
+        class="w-full bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 sm:px-12 py-4 flex items-center justify-between sticky top-0 z-50">
+
+        <div class="flex items-center gap-3">
+
+            <div
+                class="w-9 h-9 rounded-xl bg-[#1E3A5F] flex items-center justify-center text-white shadow-sm">
+
+                <i class="fa-solid fa-shield-halved text-lg"></i>
+
+            </div>
+
+            <span class="text-base font-bold text-slate-900 tracking-tight">
+
+                Personal Cybersecurity Assistant
+
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="my-auto py-8 px-4 sm:px-6 w-full max-w-lg mx-auto">
+
+
+        <!-- PAGE HEADING -->
+
+        <div class="text-center mb-6">
+
+            <span
+                class="text-[11px] font-bold uppercase tracking-widest text-[#1E3A5F] bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
+
+                Account Registration
+
+            </span>
+
+            <h1
+                class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+
+                Create Your Account
+
+            </h1>
+
+            <p class="text-xs text-slate-500 mt-1">
+
+                Register to access your personal cybersecurity tools.
+
+            </p>
+
+        </div>
+
+
+        <!-- REGISTRATION CARD -->
+
+        <div
+            class="bg-white rounded-2xl border border-slate-200/80 p-6 sm:p-8 shadow-xl shadow-slate-200/50">
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form
+                id="registerForm"
+                class="space-y-3.5">
+
+
+                <!-- EMAIL -->
+
+                <div>
+
+                    <label
+                        for="email"
+                        class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        placeholder="Enter your email address"
+                        class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 bg-slate-50/50 custom-input transition-all">
+
+                </div>
+
+
+                <!-- USERNAME -->
+
+                <div>
+
+                    <label
+                        for="username"
+                        class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+
+                        Username
+
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        minlength="3"
+                        autocomplete="username"
+                        placeholder="Choose a username"
+                        class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 bg-slate-50/50 custom-input transition-all">
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div>
+
+                    <label
+                        for="password"
+                        class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+
+                        Password
+
+                    </label>
+
+                    <div class="relative">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            autocomplete="new-password"
+                            placeholder="Create a password"
+                            class="w-full px-3.5 py-2.5 pr-11 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 bg-slate-50/50 custom-input transition-all">
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+
+                            <i
+                                id="eyeIcon"
+                                class="fa-solid fa-eye text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- PASSWORD RULES -->
+
+                    <div class="password-rules">
+
+                        <p class="font-semibold text-slate-700">
+                            Password requirements:
+                        </p>
+
+                        <div id="lengthRule" class="rule">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                            At least 6 characters
+
+                        </div>
+
+                        <div id="numberRule" class="rule">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                            At least one number
+
+                        </div>
+
+                        <div id="specialRule" class="rule">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                            At least one special character
+
+                        </div>
+
+                        <div id="nameRule" class="rule">
+
+                            <i class="fa-solid fa-circle-xmark"></i>
+
+                            Password should not contain your username
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="messageBox"
+                    class="message-box">
+                </div>
+
+
+                <!-- CREATE ACCOUNT BUTTON -->
+
+                <button
+                    type="submit"
+                    id="registerBtn"
+                    class="w-full bg-[#1E3A5F] hover:bg-[#162F4D] text-white font-semibold py-3 px-4 rounded-xl transition-all text-xs shadow-md active:scale-[0.99] mt-2">
+
+                    <span id="registerBtnText">
+                        Create Account
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN LINK -->
+
+            <p class="text-center text-xs text-slate-500 mt-4">
+
+                Already have an account?
+
+                <a
+                    href="login.html"
+                    class="font-bold text-[#1E3A5F] hover:underline">
+
+                    Login here
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer
+        class="text-center text-xs text-slate-400 py-4 border-t border-slate-200/50">
+
+        &copy; 2026 Personal Cybersecurity Assistant. All rights reserved.
+
+    </footer>
+
+
+    <!-- REGISTER JAVASCRIPT -->
+
+    <script src="../js/register.js"></script>
+
+</body>
+</html>

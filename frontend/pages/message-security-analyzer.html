@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Message Security Analyzer | Personal Cybersecurity Assistant</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #f1f5f9 50%,
+                #e2e8f0 100%
+            );
+        }
+
+        .custom-textarea:focus {
+            outline: none;
+            border-color: #a855f7;
+
+            box-shadow:
+                0 0 0 3px rgba(168, 85, 247, 0.15);
+        }
+
+        .result-card {
+            animation: resultAppear 0.35s ease;
+        }
+
+        @keyframes resultAppear {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+
+<body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased selection:bg-purple-600 selection:text-white">
+
+
+    <!-- =========================================
+         TOP NAVIGATION
+    ========================================== -->
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-200 px-6 sm:px-12 py-4 flex items-center justify-between sticky top-0 z-50">
+
+        <div class="flex items-center gap-4">
+
+            <a href="dashboard.html"
+               class="px-4 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition flex items-center gap-2">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+
+            <div class="h-5 w-px bg-slate-200"></div>
+
+
+            <div class="flex items-center gap-2.5">
+
+                <div class="w-8 h-8 rounded-lg bg-purple-600 flex items-center justify-center text-white shadow-sm">
+
+                    <i class="fa-solid fa-comment-slash text-sm"></i>
+
+                </div>
+
+
+                <span class="text-base font-bold text-slate-900 tracking-tight">
+
+                    Message Security Analyzer
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hidden sm:flex items-center gap-2 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 text-xs font-semibold text-emerald-800">
+
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+
+            <span>Ready to scan messages</span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="my-auto py-10 px-4 sm:px-6 w-full max-w-2xl mx-auto">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="text-center mb-8">
+
+            <span class="text-[11px] font-bold uppercase tracking-widest text-purple-700 bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-100">
+
+                Message Security
+
+            </span>
+
+
+            <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-3">
+
+                Message Security Analyzer
+
+            </h1>
+
+
+            <p class="text-xs sm:text-sm text-slate-500 mt-2 max-w-md mx-auto">
+
+                Analyze suspicious messages and identify common phishing, SMS fraud, and scam indicators.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================================
+             ANALYSIS CARD
+        ========================================== -->
+
+        <div class="bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-10 shadow-xl shadow-slate-200/60">
+
+
+            <div class="border-b border-slate-100 pb-4 mb-6">
+
+                <h2 class="text-lg font-bold text-slate-900">
+
+                    Analyze a Message
+
+                </h2>
+
+
+                <p class="text-xs text-slate-500 mt-0.5">
+
+                    Paste a suspicious email, SMS, or chat message below to perform a basic security analysis.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form id="messageForm" class="space-y-5">
+
+
+                <!-- MESSAGE INPUT -->
+
+                <div>
+
+                    <div class="flex items-center justify-between mb-2">
+
+                        <label for="messageInput"
+                               class="block text-xs font-bold uppercase tracking-wider text-slate-700">
+
+                            Suspicious Message
+
+                        </label>
+
+
+                        <button type="button"
+                                id="clearBtn"
+                                class="text-[11px] font-semibold text-purple-700 hover:underline">
+
+                            Clear Text
+
+                        </button>
+
+                    </div>
+
+
+                    <textarea
+                        id="messageInput"
+                        rows="6"
+                        required
+                        placeholder="Paste the suspicious email, SMS, or chat message here..."
+                        class="w-full p-4 border border-slate-200 rounded-2xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 bg-slate-50/50 custom-textarea transition-all duration-200 resize-none"></textarea>
+
+                </div>
+
+
+
+                <!-- ANALYZE BUTTON -->
+
+                <button
+                    type="submit"
+                    id="analyzeBtn"
+                    class="w-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-3.5 px-4 rounded-xl transition-all text-xs shadow-md active:scale-[0.99] flex items-center justify-center gap-2">
+
+                    <i class="fa-solid fa-shield-virus font-normal"></i>
+
+                    <span>Analyze Message</span>
+
+                </button>
+
+            </form>
+
+
+
+            <!-- =========================================
+                 RESULT BOX
+            ========================================== -->
+
+            <div id="resultBox"
+                 class="hidden mt-6 result-card">
+
+
+                <!-- RESULT HEADER -->
+
+                <div id="resultHeader"
+                     class="p-5 rounded-2xl border">
+
+                    <div class="flex items-start gap-3">
+
+                        <div id="resultIcon"
+                             class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+
+                        <div class="flex-1">
+
+                            <div id="resultTitle"
+                                 class="font-bold text-sm">
+
+                                Analysis Complete
+
+                            </div>
+
+
+                            <div id="resultDescription"
+                                 class="text-xs mt-1 leading-relaxed">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RISK -->
+
+                    <div class="mt-4 pt-4 border-t border-current/10 flex items-center justify-between">
+
+                        <span class="text-xs font-semibold">
+
+                            Overall Risk
+
+                        </span>
+
+
+                        <span id="riskBadge"
+                              class="px-3 py-1 rounded-full text-[11px] font-bold">
+
+                            Low Risk
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================
+                     INDICATORS
+                ====================================== -->
+
+                <div class="mt-4 bg-white border border-slate-200 rounded-2xl p-5">
+
+                    <div class="flex items-center justify-between mb-4">
+
+                        <h3 class="text-sm font-bold text-slate-900">
+
+                            Security Indicators
+
+                        </h3>
+
+
+                        <span id="issueCount"
+                              class="text-[11px] font-semibold text-slate-500">
+
+                            0 indicators
+
+                        </span>
+
+                    </div>
+
+
+                    <div id="findingList"
+                         class="space-y-3">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================
+                     RECOMMENDATIONS
+                ====================================== -->
+
+                <div class="mt-4 bg-sky-50 border border-sky-200 rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-lightbulb text-sky-600"></i>
+
+                        <h3 class="text-sm font-bold text-sky-900">
+
+                            Security Recommendations
+
+                        </h3>
+
+                    </div>
+
+
+                    <ul id="recommendationList"
+                        class="space-y-2 text-xs text-sky-900 list-disc pl-5">
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- BACKEND STATUS -->
+
+                <div id="backendStatus"
+                     class="mt-4 hidden text-[11px] text-slate-500 text-center">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="text-center text-xs text-slate-400 py-4 border-t border-slate-200/60">
+
+        &copy; 2026 Personal Cybersecurity Assistant. All rights reserved.
+
+    </footer>
+
+
+
+    <!-- EXTERNAL JAVASCRIPT -->
+
+    <script src="../js/message-security-analyzer.js"></script>
+
+</body>
+</html>

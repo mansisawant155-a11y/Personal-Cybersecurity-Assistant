@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Personal Cybersecurity Assistant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Soft Sky Blue Gradient Background */
+        .sky-blue-gradient {
+            background: linear-gradient(
+                135deg,
+                #f0f9ff 0%,
+                #e0f2fe 45%,
+                #bae6fd 100%
+            );
+
+            background-size: 180% 180%;
+            animation: softSkyGradient 14s ease infinite;
+        }
+
+        @keyframes softSkyGradient {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+
+        /* Soft Sky Glassmorphism Effects */
+
+        .sky-glass-card {
+            background: rgba(255, 255, 255, 0.65);
+
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            box-shadow:
+                0 10px 30px -10px rgba(14, 165, 233, 0.15);
+        }
+
+        .sky-glass-card:hover {
+            transform: translateY(-4px);
+
+            background: rgba(255, 255, 255, 0.85);
+
+            box-shadow:
+                0 20px 35px -10px rgba(14, 165, 233, 0.25);
+        }
+
+
+        /* Floating Animation */
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-12px) rotate(0.8deg);
+            }
+
+        }
+
+        @keyframes floatReverse {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(10px) rotate(-0.8deg);
+            }
+
+        }
+
+        .animate-float-1 {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .animate-float-2 {
+            animation: floatReverse 7s ease-in-out infinite;
+        }
+
+
+        /* Input Focus */
+
+        .custom-input:focus {
+            outline: none;
+
+            border-color: #0369a1;
+
+            box-shadow:
+                0 0 0 3px rgba(3, 105, 161, 0.15);
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-[#FFFDF9] text-slate-800 h-screen overflow-hidden flex flex-col antialiased selection:bg-sky-600 selection:text-white">
+
+
+    <div class="min-h-screen w-full flex flex-col lg:flex-row">
+
+
+        <!-- ========================================================= -->
+        <!-- LEFT SIDE: LOGIN FORM -->
+        <!-- ========================================================= -->
+
+        <div class="w-full lg:w-[42%] bg-white flex flex-col justify-between p-5 sm:p-8 lg:p-10 relative z-10">
+
+
+            <!-- Header -->
+
+            <header class="w-full">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white shadow-md shadow-sky-600/30">
+
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+
+                    </div>
+
+                    <span class="text-lg font-bold text-slate-800 tracking-tight">
+                        Personal Cybersecurity Assistant
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- Main Login Area -->
+
+            <main class="my-auto py-8 w-full max-w-md mx-auto">
+
+
+                <!-- Main Headings -->
+
+                <div class="mb-8">
+
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+
+                        Log in to Personal Cybersecurity Assistant
+
+                    </h1>
+
+
+                    <p class="text-sm font-semibold text-slate-500 mt-2">
+                        Personal Cybersecurity Assistant
+                    </p>
+
+
+                    <p class="text-sm text-slate-600 mt-3 font-normal">
+
+                        Don't have an account?
+
+                        <a href="register.html"
+                            class="font-bold text-sky-700 hover:text-sky-800 hover:underline">
+
+                            Sign Up
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+                <!-- Login Form -->
+
+                <form id="loginForm" class="space-y-4">
+
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <label for="email"
+                            class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+
+                            Email Address
+
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            placeholder="Enter your email address"
+                            class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 bg-white custom-input transition-all duration-200">
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div>
+
+                        <label for="password"
+                            class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+
+                            Password
+
+                        </label>
+
+
+                        <div class="relative flex items-center">
+
+                            <input
+                                type="password"
+                                id="password"
+                                required
+                                placeholder="Enter your password"
+                                class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder-slate-400 bg-white custom-input transition-all duration-200 pr-10">
+
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                                class="absolute right-3 text-slate-400 hover:text-slate-600 focus:outline-none p-1">
+
+                                <i id="eyeIcon"
+                                    class="fa-regular fa-eye"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember Me / Forgot Password -->
+
+                    <div class="flex items-center justify-between text-xs sm:text-sm pt-2">
+
+
+                        <label class="flex items-center text-slate-600 cursor-pointer select-none">
+
+                            <input
+                                type="checkbox"
+                                id="remember"
+                                class="w-4 h-4 text-sky-600 border-slate-300 rounded focus:ring-sky-500">
+
+                            <span class="ml-2 font-medium">
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            id="forgotPasswordLink"
+                            class="font-bold text-sky-700 hover:text-sky-800 hover:underline">
+
+                            Forgot Password?
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+
+                    <button
+                        type="submit"
+                        id="loginBtn"
+                        class="w-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold py-3.5 px-4 rounded-xl transition-all duration-200 text-sm shadow-md active:scale-[0.99] flex items-center justify-center gap-2 mt-2">
+
+                        <span id="loginBtnText">Login</span>
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- Status Alert -->
+
+                <div
+                    id="statusAlert"
+                    class="hidden mt-4 p-3 rounded-xl text-xs font-semibold text-center">
+                </div>
+
+
+            </main>
+
+
+            <!-- Footer -->
+
+            <footer class="text-center lg:text-left text-xs text-slate-400 pt-6">
+
+                &copy; 2026 Personal Cybersecurity Assistant. Secured with AI.
+
+            </footer>
+
+
+        </div>
+
+
+        <!-- ========================================================= -->
+        <!-- RIGHT SIDE -->
+        <!-- ========================================================= -->
+
+        <div class="w-full lg:w-[58%] sky-blue-gradient p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden text-slate-800">
+
+
+            <!-- Cyber Grid -->
+
+            <svg
+                class="absolute inset-0 w-full h-full opacity-25 pointer-events-none"
+                xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+
+                    <pattern
+                        id="sky-grid"
+                        width="40"
+                        height="40"
+                        patternUnits="userSpaceOnUse">
+
+                        <circle
+                            cx="20"
+                            cy="20"
+                            r="1.2"
+                            fill="#0284C7" />
+
+                        <path
+                            d="M 40 0 L 0 0 0 40"
+                            fill="none"
+                            stroke="#0284C7"
+                            stroke-width="0.3"
+                            stroke-dasharray="3 3" />
+
+                    </pattern>
+
+                </defs>
+
+
+                <rect
+                    width="100%"
+                    height="100%"
+                    fill="url(#sky-grid)" />
+
+            </svg>
+
+
+            <!-- Floating Light Orbs -->
+
+            <div
+                class="absolute top-1/4 -right-12 w-80 h-80 bg-sky-300/50 rounded-full filter blur-3xl pointer-events-none">
+            </div>
+
+            <div
+                class="absolute bottom-10 left-10 w-72 h-72 bg-blue-300/40 rounded-full filter blur-3xl pointer-events-none">
+            </div>
+
+
+            <!-- Right Header -->
+
+            <div class="relative z-10 flex items-center justify-between">
+
+
+                <div
+                    class="flex items-center gap-2 bg-white/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/80 shadow-sm text-xs font-semibold text-sky-900">
+
+                    <span class="w-2 h-2 rounded-full bg-sky-500 animate-ping"></span>
+
+                    <span>
+                        AI Shield Active
+                    </span>
+
+                </div>
+
+
+                <span
+                    class="text-xs font-medium text-sky-800/80 bg-white/40 backdrop-blur-sm px-3 py-1 rounded-full">
+
+                    <i class="fa-solid fa-lock mr-1"></i>
+
+                    Secure Data Protection
+
+                </span>
+
+
+            </div>
+
+
+            <!-- Central Visual -->
+
+            <div
+                class="relative z-10 my-auto py-12 max-w-lg mx-auto w-full text-center">
+
+
+                <!-- Shield -->
+
+                <div
+                    class="relative w-28 h-28 mx-auto mb-8 flex items-center justify-center">
+
+                    <div
+                        class="absolute inset-0 bg-sky-400/30 rounded-3xl blur-xl animate-pulse">
+                    </div>
+
+
+                    <div
+                        class="w-24 h-24 bg-white/80 border border-white rounded-3xl shadow-xl flex items-center justify-center text-sky-600 relative z-10">
+
+                        <i class="fa-solid fa-shield-halved text-4xl"></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Heading -->
+
+                <h2
+                    class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3">
+
+                    Your Shield Against Digital Threats
+
+                </h2>
+
+
+                <p
+                    class="text-slate-600 text-sm leading-relaxed mb-8 max-w-md mx-auto">
+
+                    Personal Cybersecurity Assistant helps you analyze
+                    passwords, websites, files, QR codes, and messages
+                    with simple security tools.
+
+                </p>
+
+
+                <!-- Feature Cards -->
+
+                <div class="space-y-3.5 text-left">
+
+
+                    <!-- Feature 1 -->
+
+                    <div
+                        class="sky-glass-card p-4 rounded-2xl transition-all duration-300 flex items-center gap-4 animate-float-1">
+
+                        <div
+                            class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+
+                            <i class="fa-solid fa-radar text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="text-sm font-bold text-slate-800">
+                                Threat Detection
+                            </h3>
+
+                            <p class="text-xs text-slate-500">
+                                alerts if your credentials appear in data leaks.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Feature 2 -->
+
+                    <div
+                        class="sky-glass-card p-4 rounded-2xl transition-all duration-300 flex items-center gap-4 animate-float-2">
+
+                        <div
+                            class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+
+                            <i class="fa-solid fa-shield-halved text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h3 class="text-sm font-bold text-slate-800">
+                                Analyze Common Digital Security Risks
+                            </h3>
+
+                            <p class="text-xs text-slate-500">
+                                protection for personal identity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Bottom Status -->
+
+            <div
+                class="relative z-10 bg-white/60 backdrop-blur-md p-3.5 rounded-2xl border border-white/80 flex items-center justify-between text-xs max-w-lg mx-auto w-full shadow-sm">
+
+
+                <div class="flex items-center gap-2.5">
+
+                    <i class="fa-solid fa-circle-check text-sky-600 text-base"></i>
+
+                    <span class="font-semibold text-slate-700">
+                        System Operating Normally
+                    </span>
+
+                </div>
+
+
+                <span class="text-[11px] text-slate-500 font-mono">
+                    v2.4 Protect
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- External Login JavaScript -->
+
+    <script src="../js/login.js"></script>
+
+</body>
+
+</html>

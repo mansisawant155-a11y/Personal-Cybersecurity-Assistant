@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Cybersecurity Assistant | Stay Safe Online</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .sky-hero-bg {
+            background: linear-gradient(
+                135deg,
+                #ffffff 0%,
+                #f0f9ff 45%,
+                #e0f2fe 100%
+            );
+        }
+
+        .tool-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.02),
+                0 2px 4px -1px rgba(0, 0, 0, 0.02);
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 20px 25px -5px rgba(14, 165, 233, 0.12),
+                0 8px 10px -6px rgba(14, 165, 233, 0.05);
+
+            border-color: #bae6fd;
+        }
+
+        @keyframes floatSlow {
+
+            0%, 100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        .animate-float {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="min-h-screen text-slate-800 flex flex-col antialiased selection:bg-sky-600 selection:text-white">
+
+
+    <!-- ================================================= -->
+    <!-- STICKY NAVIGATION HEADER -->
+    <!-- ================================================= -->
+
+    <header class="w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 px-6 sm:px-12 py-4 flex items-center justify-between sticky top-0 z-50">
+
+        <!-- Logo -->
+
+        <div class="flex items-center gap-3">
+
+            <div class="w-10 h-10 rounded-xl bg-sky-600 flex items-center justify-center text-white shadow-md shadow-sky-600/30">
+
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+
+            </div>
+
+            <span class="text-lg font-bold text-slate-900 tracking-tight">
+                Personal Cybersecurity Assistant
+            </span>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <div class="flex items-center gap-3">
+
+            <!-- FIXED LOGIN LINK -->
+            <a href="pages/login.html"
+               class="px-5 py-2.5 rounded-xl text-xs font-bold text-slate-700 hover:text-sky-700 hover:bg-slate-50 transition">
+
+                Login
+
+            </a>
+
+
+            <!-- FIXED REGISTER LINK -->
+            <a href="pages/register.html"
+               class="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#0F172A] hover:bg-[#1E293B] shadow-md transition active:scale-[0.98]">
+
+                Register
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================================= -->
+    <!-- SECTION 1 : HERO SECTION -->
+    <!-- ================================================= -->
+
+    <section class="sky-hero-bg py-16 sm:py-24 px-6 sm:px-12 border-b border-sky-100 relative overflow-hidden">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+
+
+            <!-- LEFT HERO CONTENT -->
+
+            <div class="space-y-6 text-left">
+
+
+                <!-- Platform Badge -->
+
+                <div class="inline-flex items-center gap-2 bg-sky-100/80 border border-sky-200 px-3.5 py-1.5 rounded-full text-xs font-bold text-sky-800">
+
+                    <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+
+                    <span>
+                        PERSONAL SECURITY PLATFORM
+                    </span>
+
+                </div>
+
+
+                <!-- Main Heading -->
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
+
+                    Stay Safe in the Digital World.
+
+                </h1>
+
+
+                <!-- Description -->
+
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
+
+                    Personal Cybersecurity Assistant helps you analyze passwords, websites, files, QR codes, and messages using simple security tools.
+
+                </p>
+
+
+                <!-- Buttons -->
+
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+
+
+                    <!-- FIXED GET STARTED LINK -->
+
+                    <a href="pages/register.html"
+                       class="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-[#0F172A] hover:bg-[#1E293B] shadow-lg shadow-slate-900/10 transition active:scale-[0.98] flex items-center gap-2">
+
+                        <span>
+                            Get Started
+                        </span>
+
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+
+                    </a>
+
+
+                    <a href="#tools"
+                       class="px-7 py-3.5 rounded-xl text-sm font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 shadow-sm transition">
+
+                        Explore Tools
+
+                    </a>
+
+                </div>
+
+
+                <!-- Trust Indicators -->
+
+                <div class="pt-6 flex items-center gap-6 text-xs font-semibold text-slate-500 border-t border-slate-200/60">
+
+                    <span class="flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-shield-check text-sky-600"></i>
+
+                        AI Threat Detection
+
+                    </span>
+
+
+                    <span class="flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-lock text-sky-600"></i>
+
+                        100% Privacy Preserved
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT HERO VISUAL BOX -->
+            <!-- ================================================= -->
+
+            <div class="relative flex justify-center lg:justify-end">
+
+                <div class="w-full max-w-md bg-white/80 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-white/90 shadow-2xl shadow-sky-500/10 animate-float space-y-4">
+
+
+                    <!-- Box Header -->
+
+                    <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+
+                        <div class="flex items-center gap-2.5">
+
+                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+
+                            <span class="text-xs font-bold text-slate-800">
+
+                                Cybersecurity Toolkit
+
+                            </span>
+
+                        </div>
+
+
+                        <span class="text-[11px] font-mono text-slate-400">
+
+                            v2.4 Active
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- Threat Detection -->
+
+                    <div class="p-4 rounded-2xl bg-sky-50/80 border border-sky-100 flex items-center gap-4">
+
+                        <div class="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center text-lg shrink-0">
+
+                            <i class="fa-solid fa-radar"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="text-xs font-bold text-slate-800">
+
+                                Threat Detection
+
+                            </div>
+
+                            <div class="text-[11px] text-slate-500 mt-0.5">
+
+                                Alerts if credentials appear in leaks
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Security Risk Analysis -->
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4">
+
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 text-white flex items-center justify-center text-lg shrink-0">
+
+                            <i class="fa-solid fa-magnifying-glass-shield"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="text-xs font-bold text-slate-800">
+
+                                Analyze Security Risks
+
+                            </div>
+
+                            <div class="text-[11px] text-slate-500 mt-0.5">
+
+                                Scans URLs, files, QR codes & phishing msgs
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- SECTION 2 : SECURITY TOOLS -->
+    <!-- ================================================= -->
+
+    <section id="tools"
+             class="py-16 sm:py-24 px-6 sm:px-12 max-w-7xl mx-auto w-full">
+
+
+        <!-- Section Header -->
+
+        <div class="text-center max-w-2xl mx-auto mb-14">
+
+            <span class="text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-100">
+
+                Security Tools
+
+            </span>
+
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-3">
+
+                Everything You Need to Stay Secure
+
+            </h2>
+
+
+            <p class="text-sm text-slate-500 mt-2">
+
+                Analyze common digital security risks using dedicated cybersecurity tools.
+
+            </p>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- TOOLS GRID -->
+        <!-- ================================================= -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+            <!-- 1. PASSWORD SECURITY -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 border border-sky-100 flex items-center justify-center text-xl mb-4 group-hover:bg-sky-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-key"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        Password Security
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Check password strength and verify security against breach databases.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        Leak Checker
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 2. VULNERABILITY SCANNER -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center text-xl mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        Vulnerability Scanner
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Assess a target for potential security vulnerabilities and risks.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        System Audit
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 3. QR SECURITY SCANNER -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center text-xl mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-qrcode"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        QR Security Scanner
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Analyze QR code content for potential hidden security risks and links.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        Link Inspector
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 4. MESSAGE SECURITY ANALYZER -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 border border-purple-100 flex items-center justify-center text-xl mb-4 group-hover:bg-purple-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-comment-slash"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        Message Security Analyzer
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Analyze messages and SMS for phishing and scam indicators.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        Phishing Guard
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 5. WEB SECURITY ANALYZER -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-globe"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        Web Security Analyzer
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Analyze website URLs for basic security characteristics and SSL health.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        URL Checker
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- 6. FILE SECURITY SCANNER -->
+
+            <div class="tool-card p-6 rounded-2xl flex flex-col justify-between group">
+
+                <div>
+
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-100 flex items-center justify-center text-xl mb-4 group-hover:bg-amber-600 group-hover:text-white transition-all">
+
+                        <i class="fa-solid fa-file-shield"></i>
+
+                    </div>
+
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-1.5">
+
+                        File Security Scanner
+
+                    </h3>
+
+
+                    <p class="text-xs text-slate-500 leading-relaxed">
+
+                        Analyze uploaded files for potential security risks and malicious content.
+
+                    </p>
+
+                </div>
+
+
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+                    <span class="text-xs font-semibold text-slate-400">
+
+                        File Inspector
+
+                    </span>
+
+
+                    <a href="javascript:void(0)"
+                       onclick="showLoginMessage()"
+                       class="text-xs font-bold text-sky-700 group-hover:underline">
+
+                        Try Tool →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- LOGIN REQUIRED MESSAGE -->
+    <!-- ================================================= -->
+
+    <div id="loginMessage"
+         class="fixed inset-0 bg-slate-900/30 backdrop-blur-sm hidden items-center justify-center z-[100] px-4">
+
+
+        <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl border border-sky-100 p-6 text-center">
+
+
+            <!-- Lock Icon -->
+
+            <div class="w-12 h-12 rounded-full bg-sky-50 text-sky-600 border border-sky-100 flex items-center justify-center mx-auto mb-4">
+
+                <i class="fa-solid fa-lock text-lg"></i>
+
+            </div>
+
+
+            <!-- Title -->
+
+            <h3 class="text-lg font-bold text-slate-900 mb-2">
+
+                Login Required
+
+            </h3>
+
+
+            <!-- Message -->
+
+            <p class="text-sm text-slate-500 leading-relaxed">
+
+                Please login first to use this security tool.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6 px-6 text-center text-xs text-slate-400 mt-auto">
+
+        &copy; 2026 Personal Cybersecurity Assistant.
+        All rights reserved. Secured with AI.
+
+    </footer>
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ================================================= -->
+
+    <script>
+
+        // =========================================
+        // SHOW LOGIN REQUIRED MESSAGE
+        // =========================================
+
+        function showLoginMessage() {
+
+            const message =
+                document.getElementById("loginMessage");
+
+            message.classList.remove("hidden");
+
+            message.classList.add("flex");
+
+        }
+
+
+        // =========================================
+        // CLOSE MESSAGE BY CLICKING OUTSIDE
+        // =========================================
+
+        document
+            .getElementById("loginMessage")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+
+                    this.classList.remove("flex");
+
+                    this.classList.add("hidden");
+
+                }
+
+            });
+
+
+        // =========================================
+        // CLOSE MESSAGE WITH ESCAPE KEY
+        // =========================================
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                const message =
+                    document.getElementById("loginMessage");
+
+                message.classList.remove("flex");
+
+                message.classList.add("hidden");
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
